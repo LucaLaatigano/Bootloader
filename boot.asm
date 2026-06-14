@@ -58,3 +58,27 @@ movecursor:
     pop bp ;; we give back the bp registe
     ret;; we end the subroutine
 
+
+print:
+    push bp
+    mov bp,sp
+    pusha
+
+    mov si, [bp+4] ;; we get the value in the address bp+4, an that value is an character
+    mov bh, 0x00   ;;we set page that we are on
+    mov bl, 0x00   ;; foreground color, irrelevant - in text mode
+    mov ah, 0x0E ;;here is the funcition in the list of the interrupt
+
+.char:
+    mov al, [si] ;;here is the first character in the msg, here [] we are gettin the value on the addres in si
+    add si, 1 ;; here add plus to change to the next character which is H and so on 
+    or al, 0 ;; we verify the value of al that there are the characther stored, in the msg we store this "Oh boy do I sure love assembly!", 0, that 0 will turn on the Zero flag and in the next intruction will break the loop
+    je .return ;; this is the Jump if equals, no it read the Zero flag register which is zero alway, so if the character is 0 it will break the loop
+    int 0x10 ;;we call the interrupt to print the given character
+    jmp .char ;;here we create a loop, we call .char to start loop util the zero flag is on
+.return:
+    popa
+    mov sp,bp
+    pop bp
+    ret
+
