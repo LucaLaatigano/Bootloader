@@ -1,3 +1,7 @@
+bits 16
+
+
+
 ;; Usefull website for searching interrups in the bios https://www.ctyme.com/intr/int.htm
 ;;In this section we stablished the segment that our boot is going to start,
 ;;is like definig from here the boot code starts
@@ -22,7 +26,17 @@ mov sp, 0x2000
 ;;To do this, by knowing that the stack grows downwards we need the the register in laste offset
 ;;and we start refering to certain addresses we start from the end to the beggining
 
+call clearscreen ;; we call the subroutine for the screen to appear
+push 0x0000 ;;we push into the stack 0x0000 to stablish the top-left part of the screen
+call movecursor ;;we call the movecursor subroutine
+add sp, 2 ;;here we go back the sp pointer, beacause the stack grows downwards
 
+push msg ;;we push the msg onto the memory
+call print ;; call print, to print every character
+add sp,2 ;;go back the sp pointer so its now on the start of the stack
+
+cli ;;clear interrupts
+hlt;;stop the running
 
 clearscreen:
     push bp    ;; Here we pushing a value onto the memory that we setup to later give the register value as it was
@@ -82,3 +96,7 @@ print:
     pop bp
     ret
 
+msg:	db "Oh boy do I sure love assembly!", 0 ;;we write the msg
+
+times 510-($-$$) db 0
+dw 0xAA55
