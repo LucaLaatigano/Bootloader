@@ -43,4 +43,18 @@ clearscreen:
     pop bp ;;  we are givin bakc the bp
     ret ;;  we return for funtion to stop
 
+movecursor:
+    push bp ;; we get the bp register as a flag to maintain the previous sp 
+    mov bp, sp ;; saving the sp value into bp
+    pusha ;; getting the 8 halves of every register inside the CPU
+
+    mov dx, [bp+4] ;; here is the parameters that we are goint to get by storing it inside of bp+4, that is the begging of the stack but in the fourth place, there is value of row ands col
+    mov ah, 0x02 ;; 0x02 the value that we need to set in the ah for use the function move the cursor in the list of functions in the BIOS
+    mov bh, 0x00 ;; in the documetation it says that we can use multiple pages (multiple buffering), but we are not using that so we set up in 0x00 = 0
+    int 0x10 ;; we call the interrupt
+
+    popa ;; we give the 8 halves of register
+    mov sp,bp ;;set back to sp its own value
+    pop bp ;; we give back the bp registe
+    ret;; we end the subroutine
 
