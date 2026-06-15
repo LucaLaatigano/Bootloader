@@ -76,7 +76,7 @@ movecursor:
 print:
     push bp
     mov bp,sp
-    pusha
+    pusha      
 
     mov si, [bp+4] ;; we get the value in the address bp+4, an that value is an character
     mov bh, 0x00   ;;we set page that we are on
@@ -96,7 +96,7 @@ print:
     pop bp
     ret
 
-msg:	db "Oh boy do I sure love assembly!", 0 ;;we write the msg
+msg:	db "Hoy belgica gana 2 a 0", 0 ;;we write the msg
 
 times 510-($-$$) db 0
 dw 0xAA55
