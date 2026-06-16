@@ -31,3 +31,29 @@ mov ax, 0x7E0
 mov ss, ax
 mov sp, 0x2000
 ```
+
+What does this code mean?. First we define how many bits our computer is going to have, then `mov ax, 0x7C0` and `mov ds, ax` we are copying the address where our code is going to start, it starts in the 0x7C0 adress because IBM stablished this address as common standard adress in every computer. Remember that our Bootloader will be 512 bytes long. Then we do the same thing with the ss register using ax, but in the address 0x7E0 because if we add 0x7C0 + 0x200 (512 bytes in hex) = 0x7E0. After that we set up the pointer, but first what is a pointer?. A pointer is an abstraction that is made when we want a register "pointing into and adress", you can abstract yourself and see it as an arrow that points an addres in memory, this is use because we want the pointer "pointing" to another address. So the sp register is going to have the address store of where our code starts. A statement that no much people know, is the the fact that a segment in memory grows down side up, think it as pile of plates where the plates instead of piling it up, we pile the plate down the other.
+
+
+Lets dive into how to make appear something in the screen?. To do this we are going to use the interrupt 0x10, which is the interrupt of sending things into the screen, see the docs [here](http://employees.oneonta.edu/higgindm/assembly/DOS_AND_ROM_BIOS_INTS.htm). Now with having all this understood let write some code to set up the clearscreen tag.
+
+```
+clearscreen:
+    push bp    
+    mov bp, sp 
+    pusha   
+
+    mov ah, 0x07 
+    mov al, 0x00 
+    mov bh, 0x07 
+    mov cx, 0x00 
+    mov dh, 0x18 
+    mov dl, 0x4f 
+    int 0x10 
+    mov sp,bp 
+    pop bp 
+
+
+
+
+
