@@ -10,15 +10,15 @@ Well understood that we need to explain how are going to write that script. Main
 
 
 Now lets dive into the assembly code. First thing first, you need to understand some basics buil-in functions in assembly, I'll make a list of the ones we are going to use:
--mov a, b (just copies the addres that is stored in the register b into the register a)
--push a (we borrow into out stack a register to store our own values)
--pop a (we give back the register that we have borrowed)
--call (calls and tag that we stablish)
--cli (means clear interrupts)
--hlt (switches off the computer)
--or a,b (make the logic operation between to register a and b)
--je .given (jumps if a value equals some other value,ant it jumps into the given tag)
--jmp .given (unconditional jump, this just jump into the given tag)
+- `mov a, b` (just copies the addres that is stored in the register b into the register a)
+- `push a` (we borrow into out stack a register to store our own values)
+- `pop a` (we give back the register that we have borrowed)
+- `call` (calls and tag that we stablish)
+- `cli` (means clear interrupts)
+- `hlt` (switches off the computer)
+- `or a,b` (make the logic operation between to register a and b)
+- `je .given` (jumps if a value equals some other value,ant it jumps into the given tag)
+- `jmp .given` (unconditional jump, this just jump into the given tag)
 
 
 With having understood all this functions, we can start coding our bootloader. The first thing to write is set up the segment in memory where we want to store all our code, we are going to use the following registers to set up that. The registers are ax(accumulator), ds(data segment), ss(stack segment), sp(stack pointer). Now before doing anything we need to understand this, back in the 80's the computer were bounded by the hardware that the computers had. So we can not mov a address from memory directly into and multiple porpuse register, because the wire do not connects those things. So we need to use the ax register in order to stored and adress into a multiple porpuse register. Here is the code to set up the begging, end, and pointer of our segment in memory
