@@ -28,7 +28,7 @@
 00000000000i[USBCTL] Pluggable USB devices
 00000000000i[USBCTL]   floppy mouse tablet keypad keyboard hub disk cdrom
 00000000000i[USBCTL]   printer
-00000000000i[MEM0  ] allocated memory at 0000025CF7C35040. after alignment, vector=0000025CF7C36000, block_size = 128K
+00000000000i[MEM0  ] allocated memory at 000001B0D4991040. after alignment, vector=000001B0D4992000, block_size = 128K
 00000000000i[MEM0  ] 32.00MB
 00000000000i[MEM0  ] mem block size = 0x00020000, blocks=256
 00000000000i[MEM0  ] rom at 0xfffe0000/131072 ('BIOS-bochs-latest')
@@ -41,7 +41,7 @@
 00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
 00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
 00000000000i[CMOS  ] Using local time for initial clock
-00000000000i[CMOS  ] Setting initial clock to: Mon Jun 15 16:38:01   2026 tz=utc (time0=1781541481)
+00000000000i[CMOS  ] Setting initial clock to: Mon Jun 15 23:05:21   2026 tz=utc (time0=1781564721)
 00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
 00000000000i[DMA   ] channel 4 used by cascade
 00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
@@ -259,29 +259,29 @@
 00001518240i[BXVGA ] VBE known Display Interface b0c5
 00001519657i[VBIOS ] VBE Bios ID: vbe.c 2025-01-08
 00013810513i[BIOS  ] Booting from 0000:7c00
-00013822164i[CPU0  ] WARNING: HLT instruction with IF=0!
-06749696000p[WINGUI] >>PANIC<< POWER button turned off.
-06749696000i[CPU0  ] CPU is in real mode (halted)
-06749696000i[CPU0  ] CS.mode = 16 bit
-06749696000i[CPU0  ] SS.mode = 16 bit
-06749696000i[CPU0  ] EFER = 0x00000000: ffxsr nxe lma lme sce
-06749696000i[CPU0  ] XCR0=0x00000001: tiledata tilecfg hwp lbr uintr hdc cet_s cet_u pasid pkru pt hi_zmm zmm_hi256 opmask bndcfg bndregs ymm sse FPU
-06749696000i[CPU0  ] | EAX=600007e0  EBX=00000000  ECX=00090000  EDX=00000000
-06749696000i[CPU0  ] | ESP=00002000  EBP=00000000  ESI=000e0000  EDI=0000ffac
-06749696000i[CPU0  ] | EFLAGS=00000016: id vip vif ac vm rf nt IOPL=0 of df if tf sf zf AF PF cf
-06749696000i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
-06749696000i[CPU0  ] |  CS:0000( 0004| 0|  0) 00000000 0000ffff 0 0
-06749696000i[CPU0  ] |  DS:07c0( 0005| 0|  0) 00007c00 0000ffff 0 0
-06749696000i[CPU0  ] |  SS:07e0( 0005| 0|  0) 00007e00 0000ffff 0 0
-06749696000i[CPU0  ] |  ES:0000( 0005| 0|  0) 00000000 0000ffff 0 0
-06749696000i[CPU0  ] |  FS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
-06749696000i[CPU0  ] |  GS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
-06749696000i[CPU0  ] | EIP=00007c23 (00007c23)
-06749696000i[CPU0  ] | CR0=0x60000010: pg CD NW ac wp ne ET ts em mp pe
-06749696000i[CPU0  ] | CR2=0x00000000
-06749696000i[CPU0  ] | CR3=0x00000000
-06749696000i[CPU0  ] | CR4=0x00000000: lass uintr pks cet pke smap smep keylock osxsave pcid fsgsbase smx vmx la57 umip osxmmexcpt osfxsr pce pge mce pae pse de tsd pvi vme
-06749696000i[CPU0  ] 0x0000000000007c23>> push bp : 55
-06749696000i[CMOS  ] Last time: 1781543168 tz=utc (Mon Jun 15 17:06:08   2026)
-06749696000i[      ] restoring default signal behavior
-06749696000i[SIM   ] quit_sim called with exit code 1
+00013829616i[CPU0  ] WARNING: HLT instruction with IF=0!
+13283836000p[WINGUI] >>PANIC<< POWER button turned off.
+13283836000i[CPU0  ] CPU is in real mode (halted)
+13283836000i[CPU0  ] CS.mode = 16 bit
+13283836000i[CPU0  ] SS.mode = 16 bit
+13283836000i[CPU0  ] EFER = 0x00000000: ffxsr nxe lma lme sce
+13283836000i[CPU0  ] XCR0=0x00000001: tiledata tilecfg hwp lbr uintr hdc cet_s cet_u pasid pkru pt hi_zmm zmm_hi256 opmask bndcfg bndregs ymm sse FPU
+13283836000i[CPU0  ] | EAX=600007e0  EBX=00000000  ECX=00090000  EDX=00000000
+13283836000i[CPU0  ] | ESP=00002000  EBP=00000000  ESI=000e0000  EDI=0000ffac
+13283836000i[CPU0  ] | EFLAGS=00000016: id vip vif ac vm rf nt IOPL=0 of df if tf sf zf AF PF cf
+13283836000i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+13283836000i[CPU0  ] |  CS:0000( 0004| 0|  0) 00000000 0000ffff 0 0
+13283836000i[CPU0  ] |  DS:07c0( 0005| 0|  0) 00007c00 0000ffff 0 0
+13283836000i[CPU0  ] |  SS:07e0( 0005| 0|  0) 00007e00 0000ffff 0 0
+13283836000i[CPU0  ] |  ES:0000( 0005| 0|  0) 00000000 0000ffff 0 0
+13283836000i[CPU0  ] |  FS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
+13283836000i[CPU0  ] |  GS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
+13283836000i[CPU0  ] | EIP=00007c23 (00007c23)
+13283836000i[CPU0  ] | CR0=0x60000010: pg CD NW ac wp ne ET ts em mp pe
+13283836000i[CPU0  ] | CR2=0x00000000
+13283836000i[CPU0  ] | CR3=0x00000000
+13283836000i[CPU0  ] | CR4=0x00000000: lass uintr pks cet pke smap smep keylock osxsave pcid fsgsbase smx vmx la57 umip osxmmexcpt osfxsr pce pge mce pae pse de tsd pvi vme
+13283836000i[CPU0  ] 0x0000000000007c23>> push bp : 55
+13283836000i[CMOS  ] Last time: 1781568041 tz=utc (Tue Jun 16  0:00:41   2026)
+13283836000i[      ] restoring default signal behavior
+13283836000i[SIM   ] quit_sim called with exit code 1

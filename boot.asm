@@ -1,7 +1,5 @@
 bits 16
 
-
-
 ;; Usefull website for searching interrups in the bios https://www.ctyme.com/intr/int.htm
 ;;In this section we stablished the segment that our boot is going to start,
 ;;is like definig from here the boot code starts
@@ -94,9 +92,9 @@ print:
     popa
     mov sp,bp
     pop bp
-    ret
+    ret ;;here we do as always we give back the register and finished the subroutine
 
-msg:	db "Hoy belgica gana 2 a 0", 0 ;;we write the msg
+msg:	db "Hello world", 0 ;;db(means define bytes) by defining bytes,we are basically telling the computer to store every word in every byte and then we define a tag to call after and push it into the stack
 
-times 510-($-$$) db 0
-dw 0xAA55
+times 510-($-$$) db 0 ;;here we are basically telling the cpu to fill up all the memory left with zeros, $ means the current address and $$ means the address where the segmente started, now by substracting the current and where it started we get all the addresses left with nothing, and by substranting all that 510bytes we get all the memory addresses that we want to fill up with 0, 510 and because the next intruction takes 2 bytes
+dw 0xAA55  ;;here we use dw(define word), to define a section on our stack where code finsihes, it 0xAA55 to tell the cpu "here finsish my code". In other word this a test that our computer works, because back in the 80 the wire may fail by reading 0 and 1, so it just a test
